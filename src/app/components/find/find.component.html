@@ -1,0 +1,19 @@
+<h1><small>Resultado de la busqueda</small></h1>
+<hr>
+
+<div class="row" *ngIf="heroesResult.length==0">
+  <div class="col-md-12">
+    <div class="alert alert-info">
+      Ooops, No se han encontrado heroes en la busqueda!
+    </div>
+  </div>
+</div>
+
+<div class="card-columns" *ngIf="heroesResult.length>0">
+  <app-tarjeta
+    (heroeSeleccionado)="verHeroe($event)"
+    [heroe]="heroe"
+    [index]="heroe.id"
+    *ngFor="let heroe of heroesResult">
+  </app-tarjeta>
+</div>
